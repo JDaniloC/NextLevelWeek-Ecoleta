@@ -1,3 +1,8 @@
+let selectedItems = []
+
+const itemsToCollect = document.querySelectorAll(".items-grid li")
+const collectedItems = document.querySelector("input[name=items]")
+
 function populateUFs() {
     const ufSelect = document.querySelector("select[name=uf]")
 
@@ -19,6 +24,9 @@ function getCities(event) {
 
     stateInput.value = event.target.options[event.target.selectedIndex].text
 
+    citiesSelect.innerHTML = "<option> Selecione a Cidade </option>"
+    citiesSelect.disabled = true
+
     fetch(url)
         .then(res => res.json())
         .then(cities => {
@@ -28,6 +36,32 @@ function getCities(event) {
         })
     
     citiesSelect.disabled = false
+}
+
+function handleSelectedItem(evt) {
+    const itemLi = event.target
+
+    itemLi.classList.toggle("selected")
+
+    const itemId = itemLi.dataset.id
+
+    console.log(itemId)
+
+    const alreadySelected = selectedItems.findIndex(item => item === itemId)
+
+    if (alreadySelected != -1) {
+        selectedItems = selectedItems.filter(item => {
+            return item != itemId
+        })
+    } else {
+        selectedItems.push(itemId)
+    }
+
+    collectedItems.value = selectedItems
+}
+
+for (const item of itemsToCollect) {
+    item.addEventListener("click", handleSelectedItem)
 }
 
 document
