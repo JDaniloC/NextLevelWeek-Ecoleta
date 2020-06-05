@@ -1,0 +1,31 @@
+{
+  "name": "NextLevelWeek-Coleta",
+  "version": "1.0.0",
+  "description": "Aprendendo o básico sobre programação web",
+  "main": "./src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JDaniloC/NextLevelWeek-Coleta.git"
+  },
+  "keywords": [
+    "RocketSeat",
+    "NLW"
+  ],
+  "author": "JDaniloC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JDaniloC/NextLevelWeek-Coleta/issues"
+  },
+  "homepage": "https://github.com/JDaniloC/NextLevelWeek-Coleta#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nunjucks": "^3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
